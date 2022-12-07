@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "636433695060",
+    "firebase_url": "https://conduceapp-aa7ca-default-rtdb.firebaseio.com",
+    "project_id": "conduceapp-aa7ca",
+    "storage_bucket": "conduceapp-aa7ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:636433695060:android:5be11f6d0a7d75591bc8c1",
+        "android_client_info": {
+          "package_name": "com.jose.conduceapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "636433695060-l7pgbscu4c2end3q2i2pcjbc0jri27no.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEtINq_mUvqDteKCraJfGS_KLQzkfUiUA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "636433695060-l7pgbscu4c2end3q2i2pcjbc0jri27no.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:636433695060:android:30626651e6baab481bc8c1",
+        "android_client_info": {
+          "package_name": "com.jose.primerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "636433695060-l7pgbscu4c2end3q2i2pcjbc0jri27no.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEtINq_mUvqDteKCraJfGS_KLQzkfUiUA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "636433695060-l7pgbscu4c2end3q2i2pcjbc0jri27no.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

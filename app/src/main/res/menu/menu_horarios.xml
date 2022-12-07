@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/icono_nuevo"
+        android:icon="@drawable/ic_nuevo"
+        android:title="Agregar registro"
+        app:showAsAction="always"></item>
+    <item
+        android:id="@+id/icono_actualizar"
+        android:icon="@drawable/ic_actualizar"
+        android:title="Actualizar registro"
+        app:showAsAction="always"></item>
+    <item
+        android:id="@+id/icono_eliminar"
+        android:icon="@drawable/ic_eliminar"
+        android:title="Eliminar registro"
+        app:showAsAction="always"></item>
+    <item
+        android:id="@+id/icono_regresar"
+        android:icon="@drawable/ic_regresar"
+        android:title="Home"
+        app:showAsAction="always"></item>
+</menu>
