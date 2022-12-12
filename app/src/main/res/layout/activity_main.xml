@@ -10,33 +10,43 @@
         android:id="@+id/BtnHorarios"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
+        android:layout_marginBottom="50dp"
         android:onClick="horarios"
         android:text="Horarios de clase"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnReferidos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="54dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="36dp"
         android:onClick="referir"
         android:text="Referir amigo"
-        app:layout_constraintStart_toStartOf="@+id/BtnHorarios"
-        app:layout_constraintTop_toBottomOf="@+id/BtnHorarios" />
+        app:layout_constraintBottom_toTopOf="@+id/BtnHorarios"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnRedessociales"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="36dp"
         android:onClick="redesSociales"
         android:text="Nuestras Redes"
+        app:layout_constraintBottom_toTopOf="@+id/BtnHorarios"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="73dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnReferidos" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/conduceapp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

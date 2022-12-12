@@ -1,20 +1,25 @@
 package com.jose.conduceapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.jose.conduceapp.modelo.Horarios;
+import com.google.firebase.database.ValueEventListener;
 import com.jose.conduceapp.modelo.Referidos;
 
 import java.util.ArrayList;
@@ -53,6 +58,19 @@ public class referidosActivity extends AppCompatActivity {
 
 
         inicializarBD();
+        listarDatos();
+        listViewReferido.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                referidosSelected= (Referidos) adapterView.getItemAtPosition(i);
+                txtNomReferido.setText(referidosSelected.getNombreReferido());
+                txtDocReferido.setText(referidosSelected.getDocumentoReferido());
+                txtNumReferido.setText(referidosSelected.getContactoReferido());
+                txtNomRefiere.setText(referidosSelected.getNombreRefiere());
+                txtDocRefiere.setText(referidosSelected.getDocumentoRefiere());
+                txtNumRefiere.setText(referidosSelected.getContactorefiere());
+            }
+        });
     }
 
     @Override//llamar barra menu
@@ -88,7 +106,7 @@ public class referidosActivity extends AppCompatActivity {
                     objReferidos.setNombreRefiere(txtnomRefiere);
                     objReferidos.setDocumentoRefiere(txtdocRefiere);
                     objReferidos.setContactorefiere(txtnumRefiere);
-                    databaseReference.child("Clases").child(objReferidos.getContactoReferido()).setValue(objReferidos);
+                    databaseReference.child("Referir").child(objReferidos.getContactoReferido()).setValue(objReferidos);
                     Toast.makeText(this, "Registro guardado correctamente", Toast.LENGTH_SHORT).show();
                     limpiarCajas();
                 }
@@ -136,5 +154,26 @@ public class referidosActivity extends AppCompatActivity {
         else {
             this.txtNumRefiere.setError("Requerido");
         }
+    }
+    public void listarDatos(){
+        databaseReference.child("Referir").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                listReferidos.clear();
+                for (DataSnapshot objSnapshot: snapshot.getChildren()){
+                    Referidos e= objSnapshot.getValue(Referidos.class);
+                    listReferidos.add(e);
+                    arrayAdapterReferidos=new ArrayAdapter<Referidos>(referidosActivity.this, android.R.layout.simple_list_item_1,listReferidos);
+                    listViewReferido.setAdapter(arrayAdapterReferidos);
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

@@ -6,4 +6,49 @@
     android:layout_height="match_parent"
     tools:context=".redesActivity">
 
+    <ImageButton
+        android:id="@+id/btnFace"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="175dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="10dp"
+        android:onClick="face"
+        android:scaleX=".5"
+        android:scaleY=".5"
+        app:layout_constraintBottom_toTopOf="@+id/btnTickTock"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/face" />
+
+    <ImageButton
+        android:id="@+id/btnTickTock"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="7dp"
+        android:onClick="tic"
+        android:scaleX="1"
+        android:scaleY="1"
+        app:layout_constraintBottom_toTopOf="@+id/btnInsta"
+        app:layout_constraintEnd_toEndOf="@+id/btnInsta"
+        app:layout_constraintStart_toStartOf="@+id/btnInsta"
+        app:layout_constraintTop_toBottomOf="@+id/btnFace"
+        app:srcCompat="@drawable/wh" />
+
+    <ImageButton
+        android:id="@+id/btnInsta"
+        android:onClick="insta"
+        android:layout_width="198dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="28dp"
+        android:scaleX=".5"
+        android:scaleY=".5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnTickTock"
+        app:srcCompat="@drawable/images" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -105,10 +105,21 @@ public class horariosActivity extends AppCompatActivity {
                 }
                 break;
             case R.id.icono_actualizar:
-                Toast.makeText(this, "Presiono actualizar", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.icono_eliminar:
-                Toast.makeText(this, "Presiono eliminar", Toast.LENGTH_SHORT).show();
+
+                if(horariosSelected != null){
+                    if(validacion()==false){
+                        Horarios objHorarios = new Horarios();
+                        objHorarios.setNombreClase(txtclase);
+                        objHorarios.setDiaClase(txtdia);
+                        objHorarios.setHorarioClase(txthorario);
+                        objHorarios.setInstructor(txtinstructor);
+                        databaseReference.child("Clases").child(objHorarios.getDiaClase()).setValue(objHorarios);
+                        Toast.makeText(this, "Actualizado Correctamente", Toast.LENGTH_SHORT).show();
+                        horariosSelected = null;
+                    }
+                }else{
+                    Toast.makeText(this, "Seleccione un registro de nuevo", Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.icono_regresar:
                 Toast.makeText(this, "Regresar al menu", Toast.LENGTH_SHORT).show();
@@ -117,6 +128,18 @@ public class horariosActivity extends AppCompatActivity {
                 break;
             default:
                 break;
+            case R.id.icono_eliminar:
+                if(horariosSelected != null){
+                    Horarios objHorarios =new Horarios();
+                    objHorarios.setNombreClase(horariosSelected.getNombreClase());
+                    databaseReference.child("Clases").child(objHorarios.getNombreClase()).removeValue();
+                    horariosSelected = null;
+                    Toast.makeText(this, "Eliminado Correctamente", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(this, "Seleccione una clase para eliminar", Toast.LENGTH_SHORT).show();
+                }
+                break;
+
         }
         return super.onOptionsItemSelected(item);
     }
@@ -126,23 +149,29 @@ public class horariosActivity extends AppCompatActivity {
         txtHorario.setText("");
         txtInstructor.setText("");
     }
-    public void validacion(){
+    private boolean validacion(){
         String txtclase = txtClase.getText().toString();
         String txtdia = txtDia.getText().toString();
         String txthorario = txtHorario.getText().toString();
         String txtinstructor = txtInstructor.getText().toString();
         if(txtclase.isEmpty()){
             this.txtClase.setError("Requerido");
+            return true;
         }
         else if(txtdia.isEmpty()){
             this.txtDia.setError("Requerido");
+            return true;
         }
         else if(txthorario.isEmpty()){
             this.txtHorario.setError("Requerido");
+            return true;
         }
-        else {
+        else if (txtinstructor.isEmpty()){
             this.txtInstructor.setError("Requerido");
-        }
+            return true;
+        }else{
+            return false;
+    }
     }
     public void listarDatos(){
         databaseReference.child("Clases").addValueEventListener(new ValueEventListener() {

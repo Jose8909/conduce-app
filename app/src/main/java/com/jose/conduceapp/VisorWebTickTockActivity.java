@@ -6,31 +6,24 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Toast;
 
-public class redesActivity extends AppCompatActivity {
+public class VisorWebTickTockActivity extends AppCompatActivity {
+    WebView miVisorWeb;
+    String url = "https://api.whatsapp.com/send/?phone=573204414989";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_redes);
+        setContentView(R.layout.activity_visor_web_tick_tock);
 
+        miVisorWeb = (WebView) findViewById(R.id.visorWeb);
+        final WebSettings ajustesVisorWeb = miVisorWeb.getSettings();
+        ajustesVisorWeb.setJavaScriptEnabled(true);
+        miVisorWeb.loadUrl(url);
     }
-    public void face (View view){
-        Intent face = new Intent(redesActivity.this,visorWebFaceActivity.class);
-        startActivity(face);
-    }
-
-    public void tic (View view){
-        Intent tic = new Intent(redesActivity.this,VisorWebTickTockActivity.class);
-        startActivity(tic);
-    }
-
-public void insta (View view){
-        Intent insta = new Intent(redesActivity.this,visorWebInstaActivity.class);
-        startActivity(insta);
-        }
     @Override//llamar barra menu
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_redes,menu);

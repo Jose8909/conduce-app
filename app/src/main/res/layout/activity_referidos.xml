@@ -107,8 +107,8 @@
     <ListView
         android:id="@+id/listViewReferido"
         android:layout_width="409dp"
-        android:layout_height="204dp"
-        /> />
+        android:layout_height="161dp" />
+    />
 
 
 </LinearLayout>
